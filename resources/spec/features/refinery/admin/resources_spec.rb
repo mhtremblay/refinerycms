@@ -32,7 +32,7 @@ module Refinery
             click_button ::I18n.t('save', :scope => 'refinery.admin.form_actions')
           end
 
-          expect(page).to have_content("Refinery Is Awesome.txt")
+          expect(page).to have_content("Refinery Is Awesome")
           expect(Refinery::Resource.count).to eq(1)
         end
 
@@ -78,7 +78,7 @@ module Refinery
 
         it "updates file" do
           visit refinery.admin_resources_path
-          expect(page).to have_content("Refinery Is Awesome.txt")
+          expect(page).to have_content("Refinery Is Awesome")
           expect(page).to have_selector("a[href='/refinery/resources/#{resource.id}/edit']")
 
           click_link "Edit this file"
