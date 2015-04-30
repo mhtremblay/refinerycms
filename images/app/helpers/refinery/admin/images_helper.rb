@@ -19,6 +19,12 @@ module Refinery
 
         thumbnail_urls
       end
+
+      # We show the title from the next available locale
+      # if there is no title for the current locale
+      def image_title_with_translations(image)
+        image.title.presence || image.translations.detect { |t| t.title.present?}.title
+      end
     end
   end
 end
